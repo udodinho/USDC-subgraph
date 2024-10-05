@@ -1,0 +1,29 @@
+specVersion: 1.0.0
+indexerHints:
+  prune: auto
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: SelfSufficientERC20
+    network: sepolia
+    source:
+      address: "0xd98B590ebE0a3eD8C144170bA4122D402182976f"
+      abi: SelfSufficientERC20
+      startBlock: 4456645
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Approval
+        - Transfer
+      abis:
+        - name: SelfSufficientERC20
+          file: ./abis/SelfSufficientERC20.json
+      eventHandlers:
+        - event: Approval(indexed address,indexed address,uint256)
+          handler: handleApproval
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: ./src/self-sufficient-erc-20.ts

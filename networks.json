@@ -1,0 +1,8 @@
+{
+  "sepolia": {
+    "SelfSufficientERC20": {
+      "address": "0xd98B590ebE0a3eD8C144170bA4122D402182976f",
+      "startBlock": 4456645
+    }
+  }
+}
