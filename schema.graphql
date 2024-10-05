@@ -1,6 +1,23 @@
-type ExampleEntity @entity {
-  id: Bytes!
-  count: BigInt!
-  owner: Bytes! # address
-  spender: Bytes! # address
+type User @entity {
+  id: ID!
+  balances: [Balance!]! @derivedFrom(field: "owner")
+}
+
+type Token @entity {
+  id: ID!
+  name: String!
+  symbol: String!
+  decimals: BigDecimal!
+}
+
+# type Account @entity {
+#   id: ID!
+#   balances: [Balance!]! @derivedFrom(field: "account")
+# }
+
+type Balance @entity {
+  id: ID!
+  token: Token!
+  amount: BigDecimal!
+  owner: User!
 }
