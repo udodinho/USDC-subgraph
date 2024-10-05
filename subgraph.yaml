@@ -16,8 +16,9 @@ dataSources:
       apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
-        - Approval
-        - Transfer
+        - Token
+        - User
+        - Balance
       abis:
         - name: SelfSufficientERC20
           file: ./abis/SelfSufficientERC20.json
